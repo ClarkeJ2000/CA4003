@@ -17,11 +17,15 @@ function_list: function function_list
                |
                ;
 
-function:      type ID parameter_list IS
+function:      type ID 
+               OpenBracket parameter_list CloseBracket
+               Is
                decl_list 
                Begin
                statement_block Return
-               (expression | )
+               OpenBracket expression
+               | 
+               CloseBracket
                Semicolon
                End;
             
@@ -44,7 +48,7 @@ statement_block: statement statement_block
                  |
                  ;
 
-statement:       ID equalto expression
+statement:       ID Equals expression
                  |
                  ID OpenBracket arg_list CloseBracket
                  |
@@ -153,7 +157,14 @@ Assign:       ':=';
 And:          '&';
 NotEqual:     '!=';
 LessThan:     '<';
-LessOrEqualTo '<=';
-GreaterThan   '>';
-GreaterThanOrEqualTo '>=';
-Tilde         '~';
+LessOrEqualTo: '<=';
+GreaterThan:   '>';
+GreaterThanOrEqualTo: '>=';
+Tilde:         '~';
+Is:            'IS';
+Return:        'RETURN';
+Void:          'VOID';
+Boolean:       'BOOLEAN';
+else:          'ELSE';
+while:         'WHILE';
+skip:          'SKIP';
