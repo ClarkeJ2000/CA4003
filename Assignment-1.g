@@ -23,7 +23,7 @@ function:      type ID parameter_list IS
                statement_block Return
                (expression | )
                Semicolon
-               end;
+               End;
             
 type:          Integer | Boolean | Void;
 
@@ -38,16 +38,67 @@ main: main
       Begin
       decl_list
       statement_block
-      end;
+      End;
 
-statement_block: Statement statement_block
+statement_block: statement statement_block
                  |
                  ;
+
+statement:       ID := expression
+                 |
+                 ID OpenBracket arg_list CloseBracket
+                 |
+                 Begin
+                 statement_block
+                 End
+                 |
+                 if condition
+                 |
+                 Begin
+                 statement_block
+                 End
+                 else
+                 Begin
+                 statement_block
+                 End
+                 |
+                 while condition
+                 Begin
+                 statement_block
+                 End
+                 skip
+                 ;
+
+expression:     fragment binary_arith_op fragment
+                |
+                OpenBracket expression CloseBracket
+                |
+                ID OpenBracket arg_list CloseBracket
+                |
+                fragment
+                ;
+
+fragment:       ID 
+                |
+                Minus ID
+                |
+                number
+                |
+                true
+                |
+                false
+                |
+                ;
+
+binary_arith_op: Plus
+                |
+                Minus
+                ;
 
 
 
 Semicolon:    ';';
-ID:           'Identifier';
+ID:           'identifier';
 Colon:        ':';
 Comma:        ',';
 OpenBracket:  '(';
@@ -55,8 +106,11 @@ CloseBracket: ')';
 Equals:        '=';
 Variable:     'VARIABLE';
 Constant:     'CONSTANT';
-Statement:    'STATEMENT';
 Begin:        'BEGIN';
-end:          'END';
-expression:   'EXPRESSION';
+End:          'END';
 Integer:      'INTEGER';
+Minus:        '-';
+Plus:         '+';
+true:         'TRUE';
+false:        'FALSE';
+if:           'IF';
