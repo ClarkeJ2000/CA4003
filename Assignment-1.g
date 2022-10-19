@@ -17,11 +17,11 @@ function_list: function function_list
                |
                ;
 
-function:      type ID parameter_list Is
+function:      type ID parameter_list IS
                decl_list 
                Begin
                statement_block Return
-               (expr | )
+               (expression | )
                Semicolon
                end;
             
@@ -40,7 +40,23 @@ main: main
       statement_block
       end;
 
-statement_block: statement statement_block
+statement_block: Statement statement_block
                  |
                  ;
 
+
+
+Semicolon:    ';';
+ID:           'Identifier';
+Colon:        ':';
+Comma:        ',';
+OpenBracket:  '(';
+CloseBracket: ')';
+Equals:        '=';
+Variable:     'VARIABLE';
+Constant:     'CONSTANT';
+Statement:    'STATEMENT';
+Begin:        'BEGIN';
+end:          'END';
+expression:   'EXPRESSION';
+Integer:      'INTEGER';
