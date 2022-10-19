@@ -17,10 +17,30 @@ function_list: function function_list
                |
                ;
 
-function:      type ID parameter_list IS
+function:      type ID parameter_list Is
                decl_list 
                Begin
                statement_block Return
                (expr | )
                Semicolon
-               End;
+               end;
+            
+type:          Integer | Boolean | Void;
+
+parameter_list: nemp_parameter_list | ;
+
+nemp_parameter_list: ID Colon type
+                     | 
+                     ID Colon type Comma
+                     nemp_parameter_list;
+            
+main: main
+      Begin
+      decl_list
+      statement_block
+      end;
+
+statement_block: statement statement_block
+                 |
+                 ;
+
