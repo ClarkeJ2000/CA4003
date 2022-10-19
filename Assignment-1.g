@@ -44,7 +44,7 @@ statement_block: statement statement_block
                  |
                  ;
 
-statement:       ID := expression
+statement:       ID equalto expression
                  |
                  ID OpenBracket arg_list CloseBracket
                  |
@@ -95,6 +95,41 @@ binary_arith_op: Plus
                 Minus
                 ;
 
+condition:     Tilde condition
+               | 
+               OpenBracket condition CloseBracket
+               |
+               expression CompOp expression
+               |
+               condition OpenBracket | And CloseBracket condition
+               ;
+
+CompOp:        Equals
+               |
+               NotEqual
+               |
+               LessThan
+               |
+               LessOrEqualTo
+               |
+               GreaterThan
+               |
+               GreaterThanOrEqualTo
+               ;
+
+arg_list:      nemp_arg_list
+               |
+               ;
+
+nemp_arg_list: ID
+               |
+               ID Comma nemp_arg_list
+               ;
+
+
+
+
+
 
 
 Semicolon:    ';';
@@ -114,3 +149,11 @@ Plus:         '+';
 true:         'TRUE';
 false:        'FALSE';
 if:           'IF';
+Assign:       ':=';
+And:          '&';
+NotEqual:     '!=';
+LessThan:     '<';
+LessOrEqualTo '<=';
+GreaterThan   '>';
+GreaterThanOrEqualTo '>=';
+Tilde         '~';
