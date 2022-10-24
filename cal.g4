@@ -38,7 +38,7 @@ nemp_parameter_list: ID Colon type
                      ID Colon type Comma
                      nemp_parameter_list;
             
-main: main
+main: Main
       Begin
       decl_list
       statement_block
