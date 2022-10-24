@@ -56,21 +56,21 @@ statement:       ID Equals expression
                  statement_block
                  End
                  |
-                 if condition
+                 If condition
                  |
                  Begin
                  statement_block
                  End
-                 else
+                 Else
                  Begin
                  statement_block
                  End
                  |
-                 while condition
+                 While condition
                  Begin
                  statement_block
                  End
-                 skip
+                 Skip
                  ;
 
 expression:     fragment binary_arith_op fragment
@@ -86,11 +86,11 @@ fragment:       ID
                 |
                 Minus ID
                 |
-                number
+                Number
                 |
-                true
+                True
                 |
-                false
+                False
                 |
                 ;
 
@@ -132,28 +132,28 @@ nemp_arg_list: ID
 
 
 
-
-
-
-
-Semicolon:    ';';
-ID:           'identifier';
-Colon:        ':';
-Comma:        ',';
+Assign:       ':=';
+Print:        'print';
 OpenBracket:  '(';
 CloseBracket: ')';
+Multiply:     '*';
+Semicolon:    ';';
+Divide:       '/';
+Plus:         '+';
+Minus:        '-';
+Comma:        ',';
+
+
+Colon:        ':';
 Equals:        '=';
 Variable:     'VARIABLE';
 Constant:     'CONSTANT';
 Begin:        'BEGIN';
 End:          'END';
 Integer:      'INTEGER';
-Minus:        '-';
-Plus:         '+';
-true:         'TRUE';
-false:        'FALSE';
-if:           'IF';
-Assign:       ':=';
+True:         'TRUE';
+False:        'FALSE';
+If:           'IF';
 And:          '&';
 NotEqual:     '!=';
 LessThan:     '<';
@@ -165,6 +165,19 @@ Is:            'IS';
 Return:        'RETURN';
 Void:          'VOID';
 Boolean:       'BOOLEAN';
-else:          'ELSE';
-while:         'WHILE';
-skip:          'SKIP';
+Else:          'ELSE';
+While:         'WHILE';
+Skip:          'SKIP';
+Main:          'MAIN';
+
+
+// Taken from your notes on Antlr4 //
+fragment Letter: [a-zA-Z]; 
+fragment Digit: [0 - 9];
+fragment UnderScore: '_';
+
+
+ID:           Letter (Letter | Digit | UnderScore)*;
+Number:       Digit Digit*;
+
+WS:           [\t\n\r]+ -> skip;
