@@ -2,7 +2,7 @@ grammar cal;
 
 prog:          decl_list function_list main;
 
-decl_list:     decl Semicolon decl_list
+decl_list:     decl Semi decl_list
                |
                ;
 
@@ -18,15 +18,15 @@ function_list: function function_list
                ;
 
 function:      type ID 
-               OpenBracket parameter_list CloseBracket
+               LBR parameter_list RBR
                Is
                decl_list 
                Begin
                statement_block Return
-               OpenBracket expression
+               LBR expression
                | 
-               CloseBracket
-               Semicolon
+               RBR
+               Semi
                End;
             
 type:          Integer | Boolean | Void;
@@ -50,7 +50,7 @@ statement_block: statement statement_block
 
 statement:       ID Equals expression
                  |
-                 ID OpenBracket arg_list CloseBracket
+                 ID LBR arg_list RBR
                  |
                  Begin
                  statement_block
@@ -75,9 +75,9 @@ statement:       ID Equals expression
 
 expression:     frag binary_arith_op frag
                 |
-                OpenBracket expression CloseBracket
+                LBR expression RBR
                 |
-                ID OpenBracket arg_list CloseBracket
+                ID LBR arg_list RBR
                 |
                 frag
                 ;
@@ -101,11 +101,11 @@ binary_arith_op: Plus
 
 condition:     Tilde condition
                | 
-               OpenBracket condition CloseBracket
+               LBR condition RBR
                |
                expression CompOp expression
                |
-               condition OpenBracket | And CloseBracket condition
+               condition LBR | And RBR condition
                ;
 
 CompOp:        Equals
@@ -131,13 +131,14 @@ nemp_arg_list: ID
                ;
 
 
+// Tokens //
 
 Assign:       ':=';
 Print:        'print';
-OpenBracket:  '(';
-CloseBracket: ')';
-Multiply:     '*';
-Semicolon:    ';';
+LBR:          '(';
+RBR:          ')';
+Mult:         '*';
+Semi:         ';';
 Divide:       '/';
 Plus:         '+';
 Minus:        '-';
@@ -151,6 +152,12 @@ LessOrEqualTo: '<=';
 GreaterThan:   '>';
 GreaterThanOrEqualTo: '>=';
 Tilde:         '~';
+Or:            '|';   
+
+
+// Taken from your notes on Antlr4 //
+
+
 
 fragment A:       'a' | 'A';
 fragment B:       'b' | 'B';
@@ -161,23 +168,18 @@ fragment F:       'f' | 'F';
 fragment G:       'g' | 'G';
 fragment H:       'h' | 'H';
 fragment I:       'i' | 'I';
-fragment J:       'j' | 'J';
 fragment K:       'k' | 'K';
 fragment L:       'l' | 'L';
 fragment M:       'm' | 'M';
 fragment N:       'n' | 'N';
 fragment O:       'o' | 'O';
 fragment P:       'p' | 'P';
-fragment Q:       'q' | 'Q';
 fragment R:       'r' | 'R';
 fragment S:       's' | 'S';
 fragment T:       't' | 'T';
 fragment U:       'u' | 'U';
 fragment V:       'v' | 'V';
 fragment W:       'w' | 'W';
-fragment X:       'x' | 'X';
-fragment Y:       'y' | 'Y';
-fragment Z:       'z' | 'Z';
 
 
 
@@ -198,7 +200,7 @@ While:        W H I L E;
 Skip:         S K I P;
 Main:         M A I N;
 
-// Taken from your notes on Antlr4 //
+
 fragment Letter: [a-zA-Z]; 
 fragment Digit: [0 - 9];
 fragment UnderScore: '_';
