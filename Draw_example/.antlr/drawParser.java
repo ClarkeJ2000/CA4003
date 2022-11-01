@@ -1,4 +1,4 @@
-// Generated from java-escape by ANTLR 4.11.1
+// Generated from c:\Users\Jamie\Compiler\CA4003\Draw_example\draw.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class drawParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -72,7 +72,7 @@ public class drawParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "java-escape"; }
+	public String getGrammarFileName() { return "draw.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -88,7 +88,6 @@ public class drawParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
-	@SuppressWarnings("CheckReturnValue")
 	public static class ProgContext extends ParserRuleContext {
 		public List<StmContext> stm() {
 			return getRuleContexts(StmContext.class);
@@ -100,14 +99,6 @@ public class drawParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_prog; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).enterProg(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).exitProg(this);
-		}
 	}
 
 	public final ProgContext prog() throws RecognitionException {
@@ -120,7 +111,7 @@ public class drawParser extends Parser {
 			setState(7);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (((_la) & ~0x3f) == 0 && ((1L << _la) & 254L) != 0) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Up) | (1L << Down) | (1L << Left) | (1L << Right) | (1L << Init) | (1L << Draw) | (1L << Display))) != 0)) {
 				{
 				{
 				setState(4);
@@ -144,7 +135,6 @@ public class drawParser extends Parser {
 		return _localctx;
 	}
 
-	@SuppressWarnings("CheckReturnValue")
 	public static class StmContext extends ParserRuleContext {
 		public StmContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -156,7 +146,6 @@ public class drawParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	@SuppressWarnings("CheckReturnValue")
 	public static class InitContext extends StmContext {
 		public TerminalNode Init() { return getToken(drawParser.Init, 0); }
 		public List<TerminalNode> NUMBER() { return getTokens(drawParser.NUMBER); }
@@ -164,92 +153,30 @@ public class drawParser extends Parser {
 			return getToken(drawParser.NUMBER, i);
 		}
 		public InitContext(StmContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).enterInit(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).exitInit(this);
-		}
 	}
-	@SuppressWarnings("CheckReturnValue")
 	public static class LeftContext extends StmContext {
 		public TerminalNode Left() { return getToken(drawParser.Left, 0); }
 		public LeftContext(StmContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).enterLeft(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).exitLeft(this);
-		}
 	}
-	@SuppressWarnings("CheckReturnValue")
 	public static class DisplayContext extends StmContext {
 		public TerminalNode Display() { return getToken(drawParser.Display, 0); }
 		public DisplayContext(StmContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).enterDisplay(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).exitDisplay(this);
-		}
 	}
-	@SuppressWarnings("CheckReturnValue")
 	public static class UpContext extends StmContext {
 		public TerminalNode Up() { return getToken(drawParser.Up, 0); }
 		public UpContext(StmContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).enterUp(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).exitUp(this);
-		}
 	}
-	@SuppressWarnings("CheckReturnValue")
 	public static class RightContext extends StmContext {
 		public TerminalNode Right() { return getToken(drawParser.Right, 0); }
 		public RightContext(StmContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).enterRight(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).exitRight(this);
-		}
 	}
-	@SuppressWarnings("CheckReturnValue")
 	public static class DrawContext extends StmContext {
 		public TerminalNode Draw() { return getToken(drawParser.Draw, 0); }
 		public DrawContext(StmContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).enterDraw(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).exitDraw(this);
-		}
 	}
-	@SuppressWarnings("CheckReturnValue")
 	public static class DownContext extends StmContext {
 		public TerminalNode Down() { return getToken(drawParser.Down, 0); }
 		public DownContext(StmContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).enterDown(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof drawListener ) ((drawListener)listener).exitDown(this);
-		}
 	}
 
 	public final StmContext stm() throws RecognitionException {
@@ -335,24 +262,14 @@ public class drawParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\t\u0016\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0001"+
-		"\u0000\u0005\u0000\u0006\b\u0000\n\u0000\f\u0000\t\t\u0000\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0003\u0001\u0014\b\u0001\u0001\u0001\u0000\u0000"+
-		"\u0002\u0000\u0002\u0000\u0000\u001a\u0000\u0007\u0001\u0000\u0000\u0000"+
-		"\u0002\u0013\u0001\u0000\u0000\u0000\u0004\u0006\u0003\u0002\u0001\u0000"+
-		"\u0005\u0004\u0001\u0000\u0000\u0000\u0006\t\u0001\u0000\u0000\u0000\u0007"+
-		"\u0005\u0001\u0000\u0000\u0000\u0007\b\u0001\u0000\u0000\u0000\b\u0001"+
-		"\u0001\u0000\u0000\u0000\t\u0007\u0001\u0000\u0000\u0000\n\u000b\u0005"+
-		"\u0005\u0000\u0000\u000b\f\u0005\b\u0000\u0000\f\u0014\u0005\b\u0000\u0000"+
-		"\r\u0014\u0005\u0001\u0000\u0000\u000e\u0014\u0005\u0002\u0000\u0000\u000f"+
-		"\u0014\u0005\u0003\u0000\u0000\u0010\u0014\u0005\u0004\u0000\u0000\u0011"+
-		"\u0014\u0005\u0006\u0000\u0000\u0012\u0014\u0005\u0007\u0000\u0000\u0013"+
-		"\n\u0001\u0000\u0000\u0000\u0013\r\u0001\u0000\u0000\u0000\u0013\u000e"+
-		"\u0001\u0000\u0000\u0000\u0013\u000f\u0001\u0000\u0000\u0000\u0013\u0010"+
-		"\u0001\u0000\u0000\u0000\u0013\u0011\u0001\u0000\u0000\u0000\u0013\u0012"+
-		"\u0001\u0000\u0000\u0000\u0014\u0003\u0001\u0000\u0000\u0000\u0002\u0007"+
-		"\u0013";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\13\30\4\2\t\2\4\3"+
+		"\t\3\3\2\7\2\b\n\2\f\2\16\2\13\13\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
+		"\3\5\3\26\n\3\3\3\2\2\4\2\4\2\2\2\34\2\t\3\2\2\2\4\25\3\2\2\2\6\b\5\4"+
+		"\3\2\7\6\3\2\2\2\b\13\3\2\2\2\t\7\3\2\2\2\t\n\3\2\2\2\n\3\3\2\2\2\13\t"+
+		"\3\2\2\2\f\r\7\7\2\2\r\16\7\n\2\2\16\26\7\n\2\2\17\26\7\3\2\2\20\26\7"+
+		"\4\2\2\21\26\7\5\2\2\22\26\7\6\2\2\23\26\7\b\2\2\24\26\7\t\2\2\25\f\3"+
+		"\2\2\2\25\17\3\2\2\2\25\20\3\2\2\2\25\21\3\2\2\2\25\22\3\2\2\2\25\23\3"+
+		"\2\2\2\25\24\3\2\2\2\26\5\3\2\2\2\4\t\25";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
